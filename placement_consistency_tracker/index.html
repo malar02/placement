@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Placement Consistency Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">MY LONG-TERM GROWTH SYSTEM</p>
+      <h1>🚀 Placement Consistency Tracker</h1>
+      <p class="subtitle">Build skills every day. Track the journey. Keep going.</p>
+    </div>
+    <div class="today" id="todayLabel"></div>
+  </header>
+
+  <main class="container">
+    <section class="hero card">
+      <div>
+        <p class="eyebrow">TODAY'S FOCUS</p>
+        <h2 id="motivation">Start small. Stay consistent.</h2>
+        <p id="motivationDetail">Complete your planned work today and keep your long-term streak alive.</p>
+      </div>
+      <div class="hero-stats">
+        <div><span id="streak">0</span><small>Current streak</small></div>
+        <div><span id="bestStreak">0</span><small>Best streak</small></div>
+        <div><span id="productiveDays">0</span><small>Productive days</small></div>
+      </div>
+    </section>
+
+    <nav class="tabs">
+      <button class="tab active" data-view="dashboard">Dashboard</button>
+      <button class="tab" data-view="history">History</button>
+      <button class="tab" data-view="analytics">Analytics</button>
+      <button class="tab" data-view="settings">Settings</button>
+    </nav>
+
+    <section id="dashboardView" class="view active">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">DAILY ROUTINE</p>
+          <h2>Today's progress</h2>
+        </div>
+        <div class="date-control">
+          <label for="selectedDate">Date</label>
+          <input type="date" id="selectedDate">
+        </div>
+      </div>
+
+      <div class="progress-summary card">
+        <div>
+          <strong id="dayProgressText">0 / 4 areas completed</strong>
+          <p id="dayProgressHours">0 hours logged</p>
+        </div>
+        <div class="progress-track large"><div id="dayProgressBar" class="progress-fill"></div></div>
+      </div>
+
+      <div id="taskGrid" class="task-grid"></div>
+    </section>
+
+    <section id="historyView" class="view">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">LONG-TERM RECORD</p>
+          <h2>Daily history</h2>
+        </div>
+        <div class="history-actions">
+          <button class="secondary" id="prevMonth">←</button>
+          <strong id="historyMonth"></strong>
+          <button class="secondary" id="nextMonth">→</button>
+        </div>
+      </div>
+      <div class="calendar card">
+        <div class="weekdays">
+          <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+        </div>
+        <div id="calendarGrid" class="calendar-grid"></div>
+      </div>
+      <div class="legend">
+        <span><i class="dot none"></i> No record</span>
+        <span><i class="dot partial"></i> Started</span>
+        <span><i class="dot good"></i> 50%+</span>
+        <span><i class="dot complete"></i> All areas</span>
+      </div>
+    </section>
+
+    <section id="analyticsView" class="view">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">YOUR JOURNEY</p>
+          <h2>Progress analytics</h2>
+        </div>
+        <select id="analyticsPeriod">
+          <option value="30">Last 30 days</option>
+          <option value="90">Last 90 days</option>
+          <option value="365">Last 365 days</option>
+          <option value="all">All recorded time</option>
+        </select>
+      </div>
+
+      <div class="analytics-cards">
+        <div class="stat card"><span id="analyticsDays">0</span><small>Productive days</small></div>
+        <div class="stat card"><span id="analyticsHours">0</span><small>Hours logged</small></div>
+        <div class="stat card"><span id="analyticsTasks">0</span><small>Tasks completed</small></div>
+        <div class="stat card"><span id="analyticsRate">0%</span><small>Completion rate</small></div>
+      </div>
+
+      <div class="card chart-card">
+        <div class="card-title">
+          <div>
+            <p class="eyebrow">AREA BREAKDOWN</p>
+            <h3>Consistency by skill</h3>
+          </div>
+        </div>
+        <div id="areaBars"></div>
+      </div>
+    </section>
+
+    <section id="settingsView" class="view">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">PERSONALIZE</p>
+          <h2>Routine settings</h2>
+        </div>
+      </div>
+
+      <div class="settings-grid">
+        <div class="card">
+          <h3>Daily targets</h3>
+          <p class="muted">Change your target hours anytime. Your historical records stay safe.</p>
+          <div id="settingsTasks"></div>
+          <button class="primary" id="saveSettings">Save targets</button>
+        </div>
+
+        <div class="card">
+          <h3>Data backup</h3>
+          <p class="muted">Keep your long-term progress safe by exporting a backup occasionally.</p>
+          <div class="button-row">
+            <button class="secondary" id="exportData">Export backup</button>
+            <label class="secondary file-label">
+              Import backup
+              <input type="file" id="importData" accept=".json">
+            </label>
+          </div>
+          <hr>
+          <h3>Reset</h3>
+          <p class="muted">This permanently removes all saved records from this browser.</p>
+          <button class="danger" id="resetData">Reset all data</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Consistency beats intensity. Keep building. 🌱</p>
+  </footer>
+
+  <div id="toast" class="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
